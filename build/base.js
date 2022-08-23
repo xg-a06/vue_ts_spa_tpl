@@ -23,7 +23,7 @@ const baseConfig = {
     rules: [
       {
         test: /\.[t|j]s[x]?$/,
-        include: [resolve(join(workspace, rootDir), configDir)],
+        include: [resolve('../src')],
         use: [
           {
             loader: require.resolve('thread-loader'), // 开启多进程
