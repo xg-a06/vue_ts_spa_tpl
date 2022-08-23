@@ -1,0 +1,23 @@
+{
+  "name": "vue_ts_spa_tpl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "babel-loader": "^8.2.5",
+    "html-webpack-plugin": "^5.5.0",
+    "thread-loader": "^3.0.4",
+    "webpack": "^5.74.0",
+    "webpack-dev-server": "^4.10.0"
+  },
+  "dependencies": {
+    "vue": "^3.2.37"
+  }
+}
