@@ -1,7 +1,6 @@
 <template>
-  <div class='test'>
+  <div class="test">
     <p>{{ str }}</p>
-
   </div>
   <img src="/static/logo.svg" />
   <img src="/static/logo.jpeg" />
@@ -10,10 +9,9 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 
 const str = ref('hello world1');
-
 </script>
 
 <style lang="less" scoped>
