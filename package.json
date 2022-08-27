@@ -13,6 +13,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,vue}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.18.13",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
@@ -69,6 +75,7 @@
     "progress-bar-webpack-plugin": "^2.1.0",
     "terser-webpack-plugin": "^5.3.5",
     "thread-loader": "^3.0.4",
+    "ts-node": "^10.9.1",
     "vue-eslint-parser": "^9.0.3",
     "vue-loader": "^17.0.0",
     "vue-style-loader": "^4.1.3",
