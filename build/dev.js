@@ -1,6 +1,7 @@
 const { HotModuleReplacementPlugin } = require('webpack');
 const { merge } = require('webpack-merge');
 const { resolve } = require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const baseConfig = require('./base');
 const { getCssLoaders } = require('./css');
 
@@ -38,7 +39,7 @@ const devConfig = merge(baseConfig, {
   module: {
     rules: getCssLoaders(process.env.NODE_ENV === 'production'),
   },
-  plugins: [],
+  plugins: [new ESLintPlugin()],
 });
 
 module.exports = devConfig;
