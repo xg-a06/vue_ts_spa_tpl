@@ -1,0 +1,23 @@
+@import './var.less';
+
+@keyframes slide-up-enter {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes slide-up-leave {
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.slide-up {
+  &-enter-active {
+    animation: slide-up-enter @animation-duration-base both ease;
+  }
+
+  &-leave-active {
+    animation: slide-up-leave @animation-duration-base both ease;
+  }
+}
