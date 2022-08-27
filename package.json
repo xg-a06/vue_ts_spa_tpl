@@ -14,10 +14,6 @@
   "author": "",
   "license": "ISC",
   "lint-staged": {
-    "src/*.{js,jsx,ts,tsx,vue}": [
-      "eslint --cache --fix",
-      "prettier --write"
-    ],
     "src/**/*.{js,jsx,ts,tsx,vue}": [
       "eslint --cache --fix",
       "prettier --write"
