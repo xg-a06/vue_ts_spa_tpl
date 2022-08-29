@@ -39,7 +39,14 @@ const devConfig = merge(baseConfig, {
   module: {
     rules: getCssLoaders(process.env.NODE_ENV === 'production'),
   },
-  plugins: [new ESLintPlugin()],
+  plugins: [
+    new ESLintPlugin({
+      emitError: true,
+      emitWarning: true,
+      extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue'],
+      formatter: require('eslint-formatter-friendly'),
+    }),
+  ],
 });
 
 module.exports = devConfig;

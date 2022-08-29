@@ -13,7 +13,7 @@ const baseConfig = {
   mode: isProd ? 'production' : 'development',
   devtool: isProd ? false : 'inline-source-map',
   entry: {
-    app: resolve(__dirname, '../src/index.js'),
+    app: resolve(__dirname, '../src/index.ts'),
   },
 
   resolve: {
@@ -23,6 +23,7 @@ const baseConfig = {
     },
   },
   module: {
+    noParse: /^(vue|vue-router|pinia)$/,
     rules: [
       {
         test: /\.vue$/,
@@ -105,6 +106,8 @@ const baseConfig = {
     new DefinePlugin({
       'process.env': {
         API_PATH: JSON.stringify('/api'),
+        __VUE_OPTIONS_API__: 'false',
+        __VUE_PROD_DEVTOOLS__: 'false',
       },
     }),
   ],

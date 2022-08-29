@@ -5,22 +5,14 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:vue/vue3-essential', 'standard-with-typescript', 'plugin:prettier/recommended'],
+  extends: ['plugin:vue/vue3-essential', 'airbnb-base', 'plugin:prettier/recommended'],
+  overrides: [],
   parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    extraFileExtensions: ['.vue'],
-    parser: '@typescript-eslint/parser',
-    ecmaFeatures: {
-      jsx: true,
-    },
-    project: ['./tsconfig.json'],
   },
-  globals: {
-    window: 'readonly',
-  },
-  plugins: ['vue', '@typescript-eslint'],
+  plugins: ['vue'],
   settings: {
     'import/resolver': {
       alias: {

@@ -8,7 +8,7 @@
   <img src="@/assets/images/logo.jpeg" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const str = ref('hello world1');

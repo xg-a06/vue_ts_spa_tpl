@@ -13,7 +13,12 @@ const babelConfig = {
     ],
   ],
   plugins: [
-    ['@babel/plugin-transform-runtime'],
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        corejs: 3,
+      },
+    ],
     '@babel/plugin-proposal-class-static-block', // 必须在plugin-proposal-class-properties之前
     ['@babel/plugin-proposal-decorators', { legacy: true }], // 必须在plugin-proposal-class-properties之前
     ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
@@ -33,5 +38,13 @@ const babelConfig = {
     '@babel/plugin-proposal-throw-expressions',
   ],
 };
+if (process.env.LANG === 'ts') {
+  babelConfig.presets.push([
+    '@babel/preset-typescript',
+    {
+      allExtensions: true, // 支持所有文件扩展名，否则在vue文件中使用ts会报错
+    },
+  ]);
+}
 
 module.exports = babelConfig;
