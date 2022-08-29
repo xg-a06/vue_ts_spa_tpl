@@ -10,7 +10,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-
 const str = ref('hello world1');
 </script>
 
@@ -18,7 +17,6 @@ const str = ref('hello world1');
 .test {
   background: url(./assets/images/logo.jpeg) 32px 32px no-repeat;
   background-position: center right;
-
   /deep/ p {
     color: red;
     font-size: 20px;

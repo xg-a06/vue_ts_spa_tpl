@@ -3,7 +3,6 @@ const { merge } = require('webpack-merge');
 const { resolve, join } = require('path');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const chalk = require('chalk');
@@ -12,6 +11,7 @@ const { getCssLoaders } = require('./css');
 
 const devConfig = merge(baseConfig, {
   output: {
+    clean: true,
     path: resolve(__dirname, '../dist'),
     filename: join('static', 'js/[name].[contenthash:8].js'),
     chunkFilename: join('static', 'js/[name].[contenthash:8].js'),
@@ -79,16 +79,13 @@ const devConfig = merge(baseConfig, {
     rules: getCssLoaders(process.env.NODE_ENV === 'production'),
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: join('static', 'css/[name].[contenthash:8].css'),
       chunkFilename: join('static', 'css/[name].[contenthash:8].css'),
     }),
     new ProgressBarPlugin({
       total: 100,
-      format: `${
-        chalk.blue.bold('build ') + chalk.green.bold(':percent')
-      } (:elapsed秒)`,
+      format: `${chalk.blue.bold('build ') + chalk.green.bold(':percent')} (:elapsed秒)`,
     }),
   ],
 });

@@ -1,33 +1,24 @@
 const path = require('path');
 
 module.exports = {
+  root: true,
   env: {
     browser: true,
-    es2021: true,
+    node: true,
+    es6: true,
   },
-  extends: ['plugin:vue/vue3-essential', 'standard-with-typescript', 'plugin:prettier/recommended'],
+  extends: ['plugin:vue/essential', '@vue/typescript/recommended', 'eslint:recommended', '@vue/prettier'],
   parser: 'vue-eslint-parser',
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    extraFileExtensions: ['.vue'],
+    ecmaVersion: 'lastest',
     parser: '@typescript-eslint/parser',
-    ecmaFeatures: {
-      jsx: true,
-    },
-    project: ['./tsconfig.json'],
+    sourceType: 'module',
   },
+  plugins: ['@typescript-eslint', 'prettier'],
   globals: {
     window: 'readonly',
   },
-  plugins: ['vue', '@typescript-eslint'],
-  settings: {
-    'import/resolver': {
-      alias: {
-        map: [['@', path.resolve('./src')]],
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', '.json'],
-      },
-    },
+  rules: {
+    'vue/no-multiple-template-root': 0,
   },
-  rules: {},
 };
