@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-const str = ref('hello world1');
+const str = ref('hello world');
 </script>
 
 <style lang="less" scoped>

@@ -4,6 +4,7 @@ dist
 compiled
 docs
 
+.eslintcache
 .nyc_output
 .DS_Store
 .awcache
