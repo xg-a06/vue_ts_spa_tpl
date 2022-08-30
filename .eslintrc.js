@@ -8,7 +8,6 @@ module.exports = {
     es6: true,
   },
   extends: ['plugin:vue/essential', '@vue/typescript/recommended', 'eslint:recommended', '@vue/prettier', '@vue/eslint-config-typescript/recommended'],
-  // extends: ['plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
   parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 'lastest',
@@ -18,8 +17,9 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'prettier', 'import'],
   settings: {
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx', '.vue'],
     'import/resolver': {
       alias: {
         map: [['@', path.resolve('./src')]],
@@ -31,6 +31,16 @@ module.exports = {
     window: 'readonly',
   },
   rules: {
+    'import/extensions': [
+      'error',
+      'always',
+      {
+        ts: 'never',
+        tsx: 'never',
+        js: 'never',
+        vue: 'always',
+      },
+    ],
     'vue/no-multiple-template-root': 0,
     'vue/multi-word-component-names': 0,
   },

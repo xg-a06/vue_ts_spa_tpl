@@ -3,16 +3,14 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "importHelpers": true,
-    "sourceMap": true,
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "scripthost"
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -25,8 +23,13 @@
     "types": [
       "node"
     ],
-    "allowSyntheticDefaultImports": true,
     "strict": true,
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "noImplicitThis": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
