@@ -17,7 +17,7 @@ const baseConfig = {
   },
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.d.ts', '.jsx', '.vue', '.json'],
     alias: {
       '@': resolve(__dirname, '../src'),
     },

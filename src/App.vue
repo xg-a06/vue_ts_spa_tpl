@@ -1,17 +1,12 @@
 <template>
-  <div class="test">
-    <p>{{ str }}</p>
-  </div>
-  <img src="/static/logo.svg" />
+  <!-- <img src="/static/logo.svg" />
   <img src="/static/logo.jpeg" />
   <img src="@/assets/images/logo.svg" />
-  <img src="@/assets/images/logo.jpeg" />
+  <img src="@/assets/images/logo.jpeg" /> -->
+  <RouterView />
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
-const str = ref('hello world');
-</script>
+<script setup lang="ts"></script>
 
 <style lang="less" scoped>
 .test {

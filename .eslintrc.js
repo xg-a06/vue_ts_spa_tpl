@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'prettier', 'import'],
   settings: {
-    'import/extensions': ['.js', '.jsx', '.ts', '.tsx', '.vue'],
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     'import/resolver': {
       alias: {
         map: [['@', path.resolve('./src')]],

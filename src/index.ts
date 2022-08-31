@@ -1,5 +1,10 @@
 import { createApp } from 'vue';
+import { setupRouter } from '@/routes';
 import App from './App.vue';
 import './assets/style/normalize.css';
 
-createApp(App).mount('#app');
+const app = createApp(App);
+
+setupRouter(app);
+
+app.mount('#app');
