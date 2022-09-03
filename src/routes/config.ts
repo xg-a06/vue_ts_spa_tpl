@@ -9,6 +9,8 @@ const routes = [
   {
     path: '/',
     component: Layout,
+    meta: { roles: ['admin'] },
+    redirect: '/todo',
     children: [
       {
         path: '/todo',
