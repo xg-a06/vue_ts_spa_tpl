@@ -1,6 +1,4 @@
 module.exports = {
-  singleQuote: true,
-  endOfLine: 'auto',
   tabWidth: 2,
   quoteProps: 'as-needed',
   singleQuote: true,
@@ -9,5 +7,5 @@ module.exports = {
   useTabs: false,
   trailingComma: 'all',
   arrowParens: 'avoid',
-  endOfLine: 'auto',
+  endOfLine: 'lf',
 };

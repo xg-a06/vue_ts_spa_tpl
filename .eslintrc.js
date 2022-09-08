@@ -1,47 +1,71 @@
-const path = require('path');
+// 需要安装依赖:  npm i eslint-define-config
+const { defineConfig } = require('eslint-define-config');
 
-module.exports = {
+module.exports = defineConfig({
   root: true,
+  /* 指定如何解析语法。*/
+  parser: 'vue-eslint-parser',
+  /* 优先级低于parse的语法解析配置 */
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+    //模块化方案
+    sourceType: 'module',
+  },
   env: {
     browser: true,
+    es2021: true,
     node: true,
-    es6: true,
+    // 解决 defineProps and defineEmits generate no-undef warnings
+    'vue/setup-compiler-macros': true,
   },
-  extends: ['plugin:vue/essential', '@vue/typescript/recommended', 'eslint:recommended', '@vue/prettier', '@vue/eslint-config-typescript/recommended'],
-  parser: 'vue-eslint-parser',
-  parserOptions: {
-    ecmaVersion: 'lastest',
-    parser: '@typescript-eslint/parser',
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  plugins: ['@typescript-eslint', 'prettier', 'import'],
-  settings: {
-    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
-    'import/resolver': {
-      alias: {
-        map: [['@', path.resolve('./src')]],
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', '.json'],
-      },
-    },
-  },
-  globals: {
-    window: 'readonly',
-  },
+  // https://eslint.bootcss.com/docs/user-guide/configuring#specifying-globals
+  globals: {},
+  extends: [
+    'plugin:vue/vue3-recommended',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended', // typescript-eslint推荐规则,
+    'prettier',
+    'plugin:prettier/recommended',
+  ],
+  // https://cn.eslint.org/docs/rules/
   rules: {
-    'import/extensions': [
+    'vue/no-multiple-template-root': 'off',
+    'vue/multi-word-component-names': 'off',
+    'vue/no-mutating-props': 'off',
+    'no-debugger': 'off',
+    // 禁止使用 var
+    'no-var': 'error',
+    // 优先使用 interface 而不是 type
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+    '@typescript-eslint/no-explicit-any': 'warn', // 可以使用 any 类型
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    // 解决使用 require() Require statement not part of import statement. 的问题
+    '@typescript-eslint/no-var-requires': 'off',
+    // 禁止出现未使用的变量
+    '@typescript-eslint/no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
+    'vue/html-indent': 'off',
+    // 关闭此规则 使用 prettier 的格式化规则，
+    'vue/max-attributes-per-line': ['off'],
+    // vue3.2.25之后为props使用解耦赋值语法，删除警告
+    'vue/no-setup-props-destructure': 'off',
+    // 优先使用驼峰，element 组件除外
+    'vue/component-name-in-template-casing': [
       'error',
-      'always',
+      'PascalCase',
       {
-        ts: 'never',
-        tsx: 'never',
-        js: 'never',
-        vue: 'always',
+        ignores: ['/^el-/', '/^router-/'],
+        registeredComponentsOnly: false,
       },
     ],
-    'vue/no-multiple-template-root': 0,
-    'vue/multi-word-component-names': 0,
+    // 强制使用驼峰
+    camelcase: ['error', { properties: 'always' }],
+    // 优先使用 const
+    'prefer-const': [
+      'error',
+      {
+        destructuring: 'any',
+        ignoreReadBeforeAssign: false,
+      },
+    ],
   },
-};
+});

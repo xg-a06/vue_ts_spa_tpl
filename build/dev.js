@@ -40,6 +40,7 @@ const devConfig = merge(baseConfig, {
     rules: getCssLoaders(process.env.NODE_ENV === 'production'),
   },
   plugins: [
+    // new HotModuleReplacementPlugin(),
     new ESLintPlugin({
       emitError: true,
       emitWarning: true,

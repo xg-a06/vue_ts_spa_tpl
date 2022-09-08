@@ -12,7 +12,8 @@
 .test {
   background: url(./assets/images/logo.jpeg) 32px 32px no-repeat;
   background-position: center right;
-  /deep/ p {
+
+  :deep(p) {
     color: red;
     font-size: 20px;
   }

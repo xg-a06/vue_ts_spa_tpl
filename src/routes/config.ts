@@ -1,6 +1,6 @@
 const Login = () => import('@/views/login/index.vue');
 const Layout = () => import('@/views/layout/index.vue');
-const Todo = () => import('@/views/todo/index.vue');
+const Main = () => import('@/views/main/index.vue');
 const About = () => import('@/views/about/index.vue');
 
 // todo 后续可以根据角色加入动态理由
@@ -10,13 +10,13 @@ const routes = [
     path: '/',
     component: Layout,
     meta: { roles: ['admin'] },
-    redirect: '/todo',
+    redirect: '/main',
     children: [
       {
-        path: '/todo',
-        name: 'Todo',
-        meta: { title: '代办', roles: ['admin'] },
-        component: Todo,
+        path: '/main',
+        name: 'Main',
+        meta: { title: '主页', roles: ['admin'] },
+        component: Main,
       },
       {
         path: '/about',
