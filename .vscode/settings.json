@@ -1,0 +1,31 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "eslint.autoFixOnSave": true
+  },
+  "eslint.validate": [
+    "vue",
+    "javascript",
+    "typescript"
+  ],
+  "eslint.codeActionsOnSave.mode": "problems",
+  "eslint.format.enable": true,
+  "path-intellisense.mappings": {
+    "@": "${workspaceFolder}/src",
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+}

@@ -9,6 +9,7 @@ export interface Todo {
 type Filter = 'all' | 'completed';
 
 let id = 1;
+
 export const useTodoStore = defineStore('todo', () => {
   const filter = ref<Filter>('all');
   const todoItems = reactive<Todo[]>([]);
@@ -30,8 +31,6 @@ export const useTodoStore = defineStore('todo', () => {
   };
 
   const todos = computed(() => {
-    console.log('1231232');
-
     switch (filter.value) {
       case 'all':
         return todoItems;

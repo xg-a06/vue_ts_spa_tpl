@@ -14,8 +14,4 @@ import { useTodoStore } from '@/store';
 const { filter } = storeToRefs(useTodoStore());
 </script>
 
-<style scoped>
-.a {
-  color: aliceblue;
-}
-</style>
+<style scoped></style>
