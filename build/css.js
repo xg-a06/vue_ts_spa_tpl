@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const getCssLoaders = (isProd) => {
+const getCssLoaders = isProd => {
   let sourceMap = !isProd;
   let lastLoader = isProd ? MiniCssExtractPlugin.loader : 'vue-style-loader';
   const loaders = [
@@ -11,13 +11,11 @@ const getCssLoaders = (isProd) => {
         { loader: lastLoader },
         {
           loader: 'css-loader',
-          options: { sourceMap: sourceMap },
+          options: { sourceMap: sourceMap, importLoaders: 2 },
         },
+        { loader: 'postcss-loader', options: { sourceMap: sourceMap } },
       ],
-      include: [
-        resolve(__dirname, '../src'),
-        resolve(__dirname, '../node_modules'),
-      ],
+      include: [resolve(__dirname, '../src'), resolve(__dirname, '../node_modules')],
     },
     {
       test: /\.less$/,

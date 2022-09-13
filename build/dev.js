@@ -11,12 +11,12 @@ const devConfig = merge(baseConfig, {
     path: resolve('dist'),
     publicPath: '/',
   },
-  cache: {
-    type: 'filesystem',
-  },
-  experiments: {
-    lazyCompilation: true,
-  },
+  // cache: {
+  //   type: 'filesystem',
+  // },
+  // experiments: {
+  //   lazyCompilation: true,
+  // },
   optimization: {
     removeAvailableModules: false,
     removeEmptyChunks: false,

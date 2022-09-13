@@ -4,6 +4,9 @@ const { DefinePlugin } = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const AutoImport = require('unplugin-auto-import/webpack');
+const Components = require('unplugin-vue-components/webpack');
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
 
 const isProd = process.env.NODE_ENV === 'production';
 const threads = os.cpus().length / 2;
@@ -39,8 +42,8 @@ const baseConfig = {
         ],
       },
       {
-        test: /\.[t|j]s[x]?$/,
-        include: [resolve(__dirname, '../src')],
+        test: /\.[m]?[t|j]s[x]?$/,
+        include: [resolve(__dirname, '../src'), /webpack-dev-server\/client\/utils/, /@vue\/devtools-api\/lib\/esm/, /pinia\/dist\/pinia.mjs/, /@vueuse\/shared\/index.mjs/, /@vueuse\/core\/index.mjs/, /element-plus\/es/],
         use: [
           {
             loader: require.resolve('thread-loader'), // 开启多进程
@@ -90,6 +93,12 @@ const baseConfig = {
   },
   plugins: [
     new VueLoaderPlugin(),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
     new HtmlWebpackPlugin({
       template: resolve(__dirname, '../index.html'),
       filename: 'index.html',

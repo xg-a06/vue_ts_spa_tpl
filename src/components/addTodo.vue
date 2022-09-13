@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input v-model="txt" type="text" />
-    <button @click="clickHandler">add</button>
+    <el-input v-model="txt" class="test" placeholder="input todo" />
+    <el-button type="primary" @click="clickHandler">add</el-button>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ const clickHandler = () => {
 </script>
 
 <style scoped>
-.a {
-  color: aliceblue;
+.test {
+  width: 200px;
 }
 </style>

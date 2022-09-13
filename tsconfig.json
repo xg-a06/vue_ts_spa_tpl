@@ -21,7 +21,8 @@
       ]
     },
     "types": [
-      "node"
+      "node",
+      "element-plus/global"
     ],
     "strict": true,
     "importHelpers": true,

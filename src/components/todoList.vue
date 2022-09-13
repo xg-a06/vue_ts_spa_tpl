@@ -13,8 +13,4 @@ import { useTodoStore } from '@/store';
 const todoStore = useTodoStore();
 </script>
 
-<style scoped>
-.a {
-  color: aliceblue;
-}
-</style>
+<style scoped></style>

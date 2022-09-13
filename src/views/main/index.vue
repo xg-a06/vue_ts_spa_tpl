@@ -12,8 +12,4 @@ import TodoList from '@/components/todoList.vue';
 import FilterRow from '@/components/filterRow.vue';
 </script>
 
-<style scoped>
-.a {
-  color: aliceblue;
-}
-</style>
+<style scoped></style>

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <input v-model="filter" type="radio" name="radio" value="all" />
-    <span>all</span>
-    <input v-model="filter" type="radio" name="radio" value="completed" />
-    <span>completed</span>
+    <el-radio-group v-model="filter" class="ml-4">
+      <el-radio label="all" size="large">All</el-radio>
+      <el-radio label="completed" size="large">Completed</el-radio>
+    </el-radio-group>
   </div>
 </template>
 

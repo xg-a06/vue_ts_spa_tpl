@@ -1,12 +1,12 @@
 <template>
   <div>
-    <span>{{ todo.name }}</span>
-    <input v-model="todo.completed" type="checkbox" />
-    <button @click="deletekHandler">delete</button>
+    <el-checkbox v-model="todo.completed" :label="todo.name" size="large" />
+    <el-button type="danger" :icon="Delete" circle @click="deletekHandler" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { Delete } from '@element-plus/icons-vue';
 import type { Todo } from '@/store';
 import { useTodoStore } from '@/store';
 
@@ -19,8 +19,4 @@ const { removeTodo } = useTodoStore();
 const deletekHandler = () => removeTodo(todo.id);
 </script>
 
-<style scoped>
-.a {
-  color: aliceblue;
-}
-</style>
+<style scoped></style>
