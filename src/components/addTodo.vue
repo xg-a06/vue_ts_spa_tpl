@@ -10,7 +10,9 @@ import { ref } from 'vue';
 import { useTodoStore } from '@/store';
 
 const txt = ref('');
+
 const { addTodo } = useTodoStore();
+
 const clickHandler = () => {
   addTodo({ name: txt.value, completed: false });
   txt.value = '';

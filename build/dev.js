@@ -14,9 +14,9 @@ const devConfig = merge(baseConfig, {
   // cache: {
   //   type: 'filesystem',
   // },
-  // experiments: {
-  //   lazyCompilation: true,
-  // },
+  experiments: {
+    lazyCompilation: true,
+  },
   optimization: {
     removeAvailableModules: false,
     removeEmptyChunks: false,
